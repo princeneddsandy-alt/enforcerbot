@@ -1,0 +1,7 @@
+agno
+duckduckgo-search
+googlemaps
+sqlalchemy
+yfinance
+streamlit
+openai
