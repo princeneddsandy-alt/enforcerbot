@@ -1,6 +1,6 @@
 import streamlit as st
 import tempfile 
-import os
+import os, glob
 from agent import agent
 
 st.set_page_config(page_title="👮The Enforcer Bot👮", page_icon="🔍")
@@ -39,6 +39,7 @@ if data := st.chat_input("Ask me about anything...", accept_file=True):
 
     # Assistant reply
     map_images = []
+    existing_maps= set(glob.glob("tmp/satellite_map_*.png"))
     full = ""  # Ensure 'full' is always defined
     with st.chat_message("assistant"):
         ph = st.empty()
