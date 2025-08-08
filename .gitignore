@@ -6,3 +6,4 @@ __pycache__/
 the savings code
 .env.example
 __pycache__/agent.cpython-313.pyc
+env.example
