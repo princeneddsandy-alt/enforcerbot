@@ -16,28 +16,19 @@ if "messages" not in st.session_state:
 with st.sidebar:
     st.header("🚨 EnforcerBot Features")
     st.markdown("""
-    **Advanced Safety & Crime Intelligence Assistant**
+    **Advanced Safety & Crime Intelligence Assistant with Emergency Response**
     
     🎯 **Core Capabilities:**
     - 🔍 Risk Assessment (Low/Medium/High)
     - 💡 Dynamic Safety Tips & Best Practices  
-    - 📍 Emergency Resource Location
-    - ⚖️ Legal Information by Country
-    - 🕵️ Threat Pattern Analysis
-    - 🗺️ Location Intelligence & Maps
-    - 🔎 Real-time Information Search
+    - 📍 Emergency Resource Location & Directions
     """)
     
     st.subheader("📋 Example Use Cases")
     
     example_scenarios = {
-        "�‍♀️ Personal Safety": "I'm walking alone at night in downtown Seattle and feel like someone is following me. What should I do?",
+        "🚶‍♀️ Personal Safety": "I'm walking alone at night in downtown Seattle and feel like someone is following me. What should I do and help me submit a police case?",
         "🏠 Home Security": "Assess the risk level of recent break-ins in my neighborhood in Austin, Texas and give me safety tips",
-        "🌍 Travel Safety": "I'm traveling to Bangkok, Thailand. What are the local laws about photography and what safety precautions should I take?",
-        "🚨 Emergency Resources": "Find nearest police station, hospital, and safe shelter in Chicago, Illinois",
-        "📱 Cyberstalking": "Someone is harassing me online and has my address. What are my legal rights in California and what should I do?",
-        "🏢 Workplace Safety": "Analyze the threat level of workplace harassment I'm experiencing and give me resources in New York",
-        "🗺️ Location Intelligence": "Show me a satellite map of Times Square and assess current crime patterns in the area"
     }
     
     for scenario, prompt in example_scenarios.items():
@@ -128,7 +119,11 @@ if data := st.chat_input(prompt_placeholder, accept_file=True):
                             "analyze_threat_patterns": "🕵️",
                             "create_satellite_map": "🗺️",
                             "coordinates_of_location": "📌",
-                            "ddg_search": "🔍"
+                            "web_search": "🔍",
+                            "get_weather_information": "🌤️",
+                            "get_directions": "🧭", 
+                            "get_current_location": "📍",
+                            "submit_police_case": "🚨"
                         }.get(current_tool, "🔧")
                         action_ph.info(f"{tool_emoji} {current_tool.replace('_', ' ').title()}...")
                     elif chunk.event == "ToolCallCompleted":
@@ -162,8 +157,8 @@ if data := st.chat_input(prompt_placeholder, accept_file=True):
 # st.markdown("---")
 # st.markdown("""
 # <div style='text-align: center; color: #666; font-size: 0.8em;'>
-# <p><strong>🚨 EnforcerBot</strong> - Advanced Safety & Crime Intelligence Assistant</p>
-# <p>Features: Risk Assessment • Safety Tips • Resource Location • Legal Information • Threat Analysis • Location Intelligence</p>
+# <p><strong>🚨 EnforcerBot</strong> - Advanced Safety & Crime Intelligence Assistant with Emergency Response</p>
+# <p>Features: Risk Assessment • Safety Tips • Resource Location • Legal Information • Threat Analysis • Mapbox Maps • Police Case Submission • Current Location • Directions</p>
 # <p><em>Always contact emergency services immediately if you are in immediate danger</em></p>
 # </div>
 # """, unsafe_allow_html=True)
