@@ -6,3 +6,8 @@ yfinance
 streamlit
 openai
 ddgs
+python-dotenv
+requests
+uuid
+mapbox
+twilio
